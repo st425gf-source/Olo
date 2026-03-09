@@ -72,7 +72,11 @@
             const feed = document.getElementById('feed');
             const actions = getActions();
             feed.innerHTML = '';
-            data.forEach(p => {
+            
+            // ترتيب البيانات لعرض الأحدث أولاً
+            const sortedData = [...data].reverse();
+
+            sortedData.forEach(p => {
                 const isLiked = actions.likes.includes(p.id.toString());
                 const isFaved = actions.favs.includes(p.id.toString());
                 feed.innerHTML += `
